@@ -1,0 +1,10 @@
+// Variables
+
+$base-font-pixel: 16;
+
+// Functions
+
+// Convert a pixel value to REM units
+@function pxToRem($pixel) {
+  @return $pixel/$base-font-pixel + rem;
+}

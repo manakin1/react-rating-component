@@ -1,0 +1,50 @@
+// Styles
+
+.u-text-right   { text-align:    right !important; }
+.u-text-left    { text-align: left     !important; }
+.u-text-center  { text-align:  center  !important; }
+.u-text-justify { text-align: justify  !important; }
+
+body {
+  color: $base-font-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  margin: pxToRem(20) 0;
+}
+
+h1,
+.e-h1 {
+  @include font-size(2.5); // 40px
+}
+
+h2,
+.e-h2 {
+  @include font-size(1.75); // 28px
+}
+
+h3,
+.e-h3 {
+  @include font-size(1.5); // 24px
+}
+
+h4,
+.e-h4 {
+  @include font-size(1.375); // 22px
+}
+
+h5,
+.e-h5 {
+  @include font-size(1); // 16px
+}
+
+h6,
+.e-h6 {
+  @include font-size(.875); // 14px
+}

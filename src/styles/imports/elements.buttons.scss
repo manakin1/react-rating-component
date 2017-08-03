@@ -1,0 +1,47 @@
+// Variables
+
+$default-button-padding:    pxToRem(4) pxToRem(55);
+$large-button-padding:      pxToRem(6) pxToRem(80);
+
+// Placeholders
+
+%btn-reset {
+  background: transparent;
+  border: none;
+}
+
+// Styles
+
+.e-btn {
+  @extend %btn-reset;
+  @include font-size(1);
+  
+  background-color: $primary-color;
+  color: $white;
+  display: block;
+  padding: $default-button-padding;
+  text-transform: uppercase;
+  -webkit-transition: background-color $default-transition;
+  transition: background-color $default-transition;
+  width: auto;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &--large {
+    padding: $large-button-padding;
+  }
+
+  &--bordered {
+    @include border-radius;
+
+    background-color: $white;
+    border: pxToRem(1) solid $paleSlate;
+    color: $near-black;
+
+    &:hover {
+      background-color: $paleSlate;
+    }
+  }
+}

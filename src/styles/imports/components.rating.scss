@@ -1,0 +1,134 @@
+// Variables
+
+$rating-item-size: pxToRem(25);
+$rating-container-padding: pxToRem(20);
+
+
+// Mixins
+
+@mixin rating-display($type, $color: red, $size: pxToRem(18)) {
+  @if($type == 'circles') {
+    @include border-radius(50%);
+
+    background-image: none;
+    background-color: $paleSlate;
+    height: $size;
+    margin: 0 pxToRem(3);
+    width: $size;
+
+    &.is-active {
+      background-color: $color;
+    }
+  }
+}
+
+// Styles
+
+.c-rating-container {
+  @extend %clearfix;
+
+  display: inline-block;
+  margin: pxToRem(10) pxToRem(10) pxToRem(20) 0;
+  vertical-align: bottom;
+
+  &--static {
+    display: inline-block;
+  }
+}
+
+.c-rating {
+  @extend %list-reset;
+
+  .c-rating-container--static & {
+    display: inline-block;
+  }
+}
+
+.c-rating__inner {
+  @include border-radius;
+
+  border: pxToRem(1) solid $paleSlate;
+  padding: $rating-container-padding;
+
+  .c-rating-container--interactive & {
+    @include box-shadow(inset 0px -1px 5px -1px rgba(0,0,0,0.75));
+    border-width: pxToRem(1);
+  }
+
+  .is-completed & {
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+.c-rating__item {
+  display: inline-block;
+}
+
+.c-rating__img {
+  @extend %btn-reset;
+
+  background-image: url(assets/star.png);
+  background-position: center right;
+  background-repeat: no-repeat;
+  height: $rating-item-size;
+  text-indent: pxToRem(-9999);
+  vertical-align: middle;
+  width: $rating-item-size;
+
+  &.is-active,
+  &:hover {
+    background-position: center left;
+  }
+
+  .c-rating-container--static & {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .c-rating--circles & {
+    @include rating-display('circles', $cerise);
+  }
+}
+
+.c-rating__label {
+  padding-right: pxToRem(10);
+  display: inline-block;
+  vertical-align: middle;
+
+  .c-rating-container--interactive & {
+    @include font-size(1.1);
+
+    display: block;
+    font-weight: $font-bold;
+    margin-bottom: pxToRem(15);
+    padding: 0;
+  }
+}
+
+.c-rating__completed {
+  @include border-radius;
+
+  background-color: $lima;
+  color: $white;
+  display: block;
+  margin-bottom: pxToRem(10);
+  padding: pxToRem(18) 0;
+  text-align: center;
+}
+
+.c-rating__btn {
+  @include font-size(.9);
+  @include transition(opacity $default-transition);
+
+  margin-top: pxToRem(18);
+  opacity: 1;
+  padding: pxToRem(6) pxToRem(25);
+  text-transform: none;
+  width: auto;
+
+  &:disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+}

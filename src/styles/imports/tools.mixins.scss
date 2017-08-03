@@ -1,0 +1,42 @@
+// Mixins 
+
+@mixin clearfix($important: false) {
+  @if ($important == "important") {
+    $important: unquote("!important");
+  } @else {
+    $important: null;
+  }
+
+  &:after {
+    content: "" $important;
+    display: table $important;
+    clear: both $important;
+  }
+}
+
+@mixin font-size($sizeValue: 1) {
+    @include rem-attr(font-size, $sizeValue);
+}
+
+@mixin rem-attr($attr, $sizeValue: 1){
+    #{$attr}: ($sizeValue * $base-font-pixel) + px;
+    #{$attr}: $sizeValue + rem;
+}
+
+@mixin border-radius($radius: 6px) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($params) {
+  -moz-box-shadow: $params;
+  -webkit-box-shadow: $params;
+  box-shadow: $params;
+}
+
+@mixin transition($params...) {
+  -moz-transition: $params;
+  -webkit-transition: $params;
+  transition: $params;
+}

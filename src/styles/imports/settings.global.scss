@@ -1,0 +1,57 @@
+// Variables
+
+
+// Containers
+$max-container-width:       pxToRem(900);
+$default-container-padding: pxToRem(20);
+
+// Fonts
+$font-arial:                'Arial', sans-serif;
+$font-open-sans:            'Open Sans', sans-serif;
+
+$base-font-family:          $font-open-sans;
+$heading-font-family:          $font-open-sans;
+
+$base-font-pixel: 16;
+$base-font-size:            16px !default;
+$base-line-height:          1 !default;
+
+$font-lighter:              100;
+$font-light:                300;
+$font-regular:              400;
+$font-semibold:             600;
+$font-bold:                 700;
+
+//Forms
+$input-height:              pxToRem(44);
+
+// Transitions
+$default-transition:        .4s cubic-bezier(.77, 0, .175, 1);
+$slow-transition:           1s cubic-bezier(.77, 0, .175, 1);
+$fast-transition:           .1s cubic-bezier(.77, 0, .175, 1);
+
+// Media queries
+$mq-small:                  screen and (max-width: 430px);
+$mq-small:                  screen and (max-width: 430px);
+
+
+// Placeholders
+
+%clearfix {
+  &::after,
+  &::before {
+    content: '';
+    display: table;
+    line-height: 0;
+  }
+
+  &::after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+%default-border-radius {
+  -webkit-border-radius: pxToRem(6);
+  border-radius: pxToRem(6);
+}
